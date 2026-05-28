@@ -433,7 +433,8 @@ with tab5:
     siralama_df = analizci.siralama_tablosu(secili_fonlar, siralama_kriteri)
     if siralama_df is not None:
         # Madalya emojisi ekle
-        siralama_df.insert(0, "Sıra", ["🥇", "🥈", "🥉"] + [f"{i+4}." for i in range(max(0, len(siralama_df)-3))])
+        medals = ["1.", "2.", "3."] + [f"{i+4}." for i in range(max(0, len(siralama_df)-3))]
+        siralama_df.insert(0, "Sira", medals)
 
         st.dataframe(
             siralama_df.style
